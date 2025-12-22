@@ -6,8 +6,8 @@ from typing import Tuple
 
 @dataclass
 class IMUConfig:
-    GYRO_SCALE: float = 131.0       # LSB/(°/s) for ±250°/s
-    ACCEL_SCALE: float = 16384.0    # LSB/g for ±2g
+    GYRO_SCALE: float = 131.0       
+    ACCEL_SCALE: float = 16384.0    
     SMPLRT_DIV: int = 7             # Sample rate = 1kHz / (1 + SMPLRT_DIV)
     CALIBRATION_SAMPLES: int = 1000
 
@@ -18,9 +18,9 @@ class MPU6050:
         self.config = IMUConfig()
         
         # Initialize sensor
-        self._write_byte(0x6B, 0x00)  # Wake up
-        self._write_byte(0x1B, 0x00)  # Gyro ±250°/s
-        self._write_byte(0x1C, 0x00)  # Accel ±2g
+        self._write_byte(0x6B, 0x00) 
+        self._write_byte(0x1B, 0x00)  
+        self._write_byte(0x1C, 0x00)  
         self._write_byte(0x19, self.config.SMPLRT_DIV)
         
         self.gyro_bias = np.zeros(3)
