@@ -1,6 +1,6 @@
-# JAX Kalman Filter
+# Professional JAX Kalman Filter
 
-``Differentiable Extended Kalman Filter for real-time IMU state estimation with neural network bias correction and production-grade deployment infrastructure.
+Differentiable Extended Kalman Filter for real-time IMU state estimation with neural network bias correction and production-grade deployment infrastructure.
 
 ## Abstract
 
@@ -79,34 +79,7 @@ Validates hardware and performance:
 python main.py --mode test
 ```
 
-## Architecture
 
-```
-├── config/
-│   └── config_manager.py    # Centralized configuration
-├── drivers/
-│   ├── mpu6050.py           # Hardware interface
-│   └── mpu6050_constants.py # Register definitions
-├── dynamics/
-│   └── rigid_body.py        # Physical dynamics model
-├── estimator/
-│   └── ekf.py               # Differentiable EKF implementation
-├── models/
-│   └── bias_net.py          # Neural network components
-├── training/
-│   ├── trainer.py           # Training pipeline
-│   └── trainer_methods.py   # Training utilities
-├── deployment/
-│   └── realtime.py          # Production deployment
-├── testing/
-│   └── test_environment.py  # Hardware validation
-├── utils/
-│   ├── logging_config.py    # Structured logging
-│   ├── exceptions.py        # Error handling
-│   └── data_validator.py    # Data integrity
-└── data/
-    └── collector.py         # Data acquisition
-```
 
 ## Key Features
 
