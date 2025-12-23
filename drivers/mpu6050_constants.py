@@ -1,0 +1,31 @@
+"""
+Constants for MPU6050 sensor - extracted to avoid hardcoded values
+"""
+
+# Register addresses
+REG_PWR_MGMT_1 = 0x6B
+REG_GYRO_CONFIG = 0x1B
+REG_ACCEL_CONFIG = 0x1C
+REG_SMPLRT_DIV = 0x19
+
+# Data registers
+REG_ACCEL_XOUT_H = 0x3B
+REG_ACCEL_YOUT_H = 0x3D
+REG_ACCEL_ZOUT_H = 0x3F
+REG_GYRO_XOUT_H = 0x43
+REG_GYRO_YOUT_H = 0x45
+REG_GYRO_ZOUT_H = 0x47
+
+# I2C device address
+MPU6050_ADDRESS = 0x68
+
+# Configuration values
+WAKE_UP_VALUE = 0x00
+GYRO_CONFIG_VALUE = 0x00
+ACCEL_CONFIG_VALUE = 0x00
+
+# Validation thresholds
+MAX_RAW_VALUE = 32768
+MIN_VALID_SAMPLES = 0.8  # 80% of samples
+MAX_CONSECUTIVE_ERRORS = 10
+SENSOR_HEALTH_DEGRADED_THRESHOLD = 5

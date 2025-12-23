@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  kalman-filter:
+    build: .
+    container_name: jax-kalman-filter
+    privileged: true  # Required for I2C access
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./test_results:/app/test_results
+      - /dev:/dev  # Pass through devices for I2C
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"  # Raspberry Pi I2C bus
+    environment:
+      - JAX_PLATFORMS=cpu
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    command: python main.py --mode deploy --duration 3600
+
+  kalman-filter-test:
+    build: .
+    container_name: jax-kalman-test
+    privileged: true
+    volumes:
+      - ./test_results:/app/test_results
+      - /dev:/dev
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
+    environment:
+      - JAX_PLATFORMS=cpu
+      - PYTHONPATH=/app
+    profiles: ["test"]
+    command: python main.py --mode test
+
+  kalman-filter-train:
+    build: .
+    container_name: jax-kalman-train
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - JAX_PLATFORMS=cpu
+      - PYTHONPATH=/app
+    profiles: ["train"]
+    command: python main.py --mode train --epochs 50

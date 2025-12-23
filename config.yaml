@@ -1,0 +1,29 @@
+# Professional JAX Kalman Filter Configuration
+
+imu:
+  GYRO_SCALE: 131.0
+  ACCEL_SCALE: 16384.0
+  SMPLRT_DIV: 7
+  CALIBRATION_SAMPLES: 1000
+  BUS_NUM: 1
+  ADDRESS: 0x68
+  TIMEOUT: 0.1
+
+ekf:
+  PROCESS_NOISE_DIAG: [1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6, 1e-6]
+  MEASUREMENT_NOISE_DIAG: [1e-4, 1e-4, 1e-4, 1e-4, 1e-4, 1e-4]
+  INITIAL_COVARIANCE: 1e-4
+  NUMERICAL_TOLERANCE: 1e-10
+
+training:
+  LEARNING_RATE: 1e-3
+  BATCH_SIZE: 32
+  VALIDATION_SPLIT: 0.2
+  MAX_EPOCHS: 100
+  EARLY_STOPPING_PATIENCE: 10
+  CHECKPOINT_INTERVAL: 5
+
+logging:
+  LEVEL: INFO
+  LOG_DIR: logs
+  COMPONENTS: ["main", "driver", "estimator", "trainer", "deployment"]
