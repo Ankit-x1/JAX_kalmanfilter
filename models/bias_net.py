@@ -1,7 +1,9 @@
 import jax
 import jax.numpy as jnp
+from jax import jit
 from flax import linen as nn
 from typing import Tuple
+from estimator.ekf import DifferentiableEKF, EKFState
 
 class BiasCorrectionNet(nn.Module):
     """Tiny MLP for bias and noise correction"""
