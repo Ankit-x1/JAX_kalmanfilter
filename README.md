@@ -1,4 +1,4 @@
-# Professional JAX Kalman Filter
+# JAX Kalman Filter
 
 Differentiable Extended Kalman Filter for real-time IMU state estimation with neural network bias correction and production-grade deployment infrastructure.
 
