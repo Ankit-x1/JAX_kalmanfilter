@@ -1,10 +1,13 @@
 import jax
 import jax.numpy as jnp
+from jax import jit
 import optax
 from flax.training import train_state
 from tqdm import tqdm
 import numpy as np
 from typing import Dict, Tuple
+from estimator.ekf import EKFState
+from models.bias_net import LearnedEKF
 
 class TrainState(train_state.TrainState):
     """Training state with additional metrics"""
