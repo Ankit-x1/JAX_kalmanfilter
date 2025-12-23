@@ -116,9 +116,6 @@ Saved 6000 samples to data/raw/stationary_20231223_123456.json
 Loading dataset...
 Loaded 18000 training samples
 Starting training...
-Epoch 1/50: 100%|██████████| 562/562 [00:12<00:00, 45.23it/s, loss=0.123]
-Epoch 1: Loss = 0.123456
-...
 Training complete. Model saved.
 ```
 
@@ -127,8 +124,6 @@ Training complete. Model saved.
 === Deployment Mode ===
 Starting real-time estimation...
 Press Ctrl+C to stop
-Roll: 0.12°, Pitch: -1.45°, Yaw: 0.03°
-Roll: 0.15°, Pitch: -1.43°, Yaw: 0.05°
 ...
 Results saved to estimation_results.png
 ```
@@ -173,18 +168,6 @@ Results saved to estimation_results.png
    pip3 install jax[cuda]  # For NVIDIA GPU
    ```
 
-## File Structure After Setup:
-```
-JAX_kalmanfilter/
-├── data/
-│   └── raw/
-│       ├── stationary_*.json
-│       ├── rotation_*.json
-│       └── trajectory_*.json
-├── trained_model.pkl
-├── estimation_results.png
-└── requirements.txt
-```
 
 ## Next Steps:
 
