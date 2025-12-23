@@ -5,6 +5,8 @@ from queue import Queue
 from threading import Thread
 import matplotlib.pyplot as plt
 from drivers.mpu6050 import MPU6050
+from models.bias_net import LearnedEKF
+from estimator.ekf import EKFState
 
 class RealTimeEstimator:
     """Real-time state estimation on Raspberry Pi"""
